@@ -1,0 +1,6 @@
+FROM node:10.1.0-alpine
+
+ADD index.js .
+
+ENV VERSION 2.0
+CMD ["node", "index.js"]
