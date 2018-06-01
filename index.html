@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>kubernetes-demo</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+layout: true
+
+class: middle
+
+---
+
+# Kubernetes
+
+---
+
+# Agenda
+
+1. Introduction
+2. Glossary
+3. Concepts
+4. Demo time
+
+---
+
+# Introduction
+
+* [Kubernetes](https://kubernetes.io/) is a container orchestration tool, released in 2014
+* Uses [etcd](https://coreos.com/etcd/), a highly available distributes key/value store, as data store
+* Declarative system, configured by `.yaml` (or `.json`) configuration files
+* [Docker swarm](https://docs.docker.com/engine/swarm/) is a more lightweight (and less powerful) alternative
+* Supported on all major cloud hosters
+* First class citizen on Google Cloud Engine
+
+???
+
+Declarative system: One defines what the Kubernetes cluster should look like and Kubernetes attempts to move from the current to the desired state
+
+---
+
+# Overview
+
+![](https://4.bp.blogspot.com/-pOsDGUA7Mrk/WQwhTrahtSI/AAAAAAAAEtw/pY6tfNdOvA4u5lRRRtxBypQjhmXz_gQJwCLcB/s1600/620x363xkube7-arch.png.pagespeed.ic.9r56iJ-hqV.png)
+
+---
+
+# Glossary
+
+* **master node**: A machine running only kubernetes workload
+* **worker node**/**minion node**: A machine running user workload
+* **kube-apiserver**: HTTP based API to interact with Kubernetes
+* **kube-controller-manager**: Daemon that attempts to manipulate the cluster to get into the desired state
+* **kube-scheduler**: Assigns unassigned pods
+* **kubectl**: CLI tool to communicate with API server
+
+---
+
+# Concepts
+
+## `pod`
+
+* Smallest unit of execution in Kubernetes
+* Runs on a single node
+* Consists of one or more containers
+
+---
+
+# Concepts
+
+## `deployment`
+
+* Unit of replication/scaling in Kubernetes
+* Defines desired existence of pods
+* Support for rolling-updates
+* Pods for a deployment may run on different nodes
+
+---
+
+# Concepts
+
+## `service`
+
+* Unit of communication in Kubernetes
+* Groups multiple pods
+* Exposes these pods under a single IP address
+* Distributes requests to these pods (for example round-robin)
+
+---
+
+# Concepts
+
+## `ingress`
+
+* Allows to route external network traffic to services
+* Enviroment specific pluggable system
+* For example can automatically create a load-balancer on Google Cloud Engine
+
+---
+
+# Concepts
+
+## `secret`
+## `configmap`
+## `persistentvolume`
+## `cronjob`
+## ...
+
+---
+
+# Demo time
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
